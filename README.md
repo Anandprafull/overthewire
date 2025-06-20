@@ -16,91 +16,193 @@ FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn bandit13  tmpdir=$(mktemp -d) && cd "$tmpdir" &
 MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS bandit14 ssh -i sshkey.private bandit14@localhost -p 2220
 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo bandit15 cat /etc/bandit_pass/bandit14 | nc localhost 30000 -->
 
+# OverTheWire: Bandit Solutions (as of June 2025)
 
-OverTheWire: Bandit Solutions As of June 2025
-Interactively solve Bandit levels on OverTheWire.
-Replace (n) with the appropriate level (e.g., bandit0).
-All commands assume the default port 2220.
+So I've started doing something for timepass after internals exams and this is it :>
 
-How to Connect
-<details> <summary><strong>SSH into Bandit</strong></summary>
-bash
+Interactively solve Bandit levels on OverTheWire.  
+Replace `<n>` with the appropriate level number (e.g., bandit0).  
+All commands assume the default port **2220**.
+
+---
+
+## How to Connect
+
+```bash
 ssh -p 2220 bandit<n>@bandit.labs.overthewire.org
-</details>
-Solutions by Level
-<details> <summary><strong>bandit1</strong></summary>
-Password: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
-Connect as bandit1 and use the password above.
+```
 
-</details> <details> <summary><strong>bandit2</strong></summary>
-Password: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
-Connect as bandit2 and use the password above.
+---
 
-</details> <details> <summary><strong>bandit3 – File with Spaces</strong></summary>
-Password: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
-Command to read the password file:
+## Solutions by Level
 
-bash
+### bandit1
+
+**Password:**  
+```
+ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+```
+
+---
+
+### bandit2
+
+**Password:**  
+```
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+```
+
+---
+
+### bandit3 – File with Spaces
+
+**Password:**  
+```
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+```
+
+**Command to read the password file:**
+```bash
 cat spaces\ in\ this\ filename
-</details> <details> <summary><strong>bandit4 – Hidden File</strong></summary>
-Password: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
-Command to read the password file:
+```
 
-bash
+---
+
+### bandit4 – Hidden File
+
+**Password:**  
+```
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+```
+
+**Command to read the password file:**
+```bash
 cat ./...Hiding-From-You
-</details> <details> <summary><strong>bandit5 – File with Dash</strong></summary>
-Password: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
-Command to identify and read the file:
+```
 
-bash
+---
+
+### bandit5 – File with Dash
+
+**Password:**  
+```
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+```
+
+**Command to identify and read the file:**
+```bash
 file ./-*
-</details> <details> <summary><strong>bandit6 – Find by Size</strong></summary>
-Password: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
-Find and read the file with size 1033 bytes:
+```
 
-bash
+---
+
+### bandit6 – Find by Size
+
+**Password:**  
+```
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+```
+
+**Find and read the file with size 1033 bytes:**
+```bash
 find . -type f -size 1033c
-</details> <details> <summary><strong>bandit7 – Direct File Path</strong></summary>
-Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
-Read the password:
+```
 
-bash
+---
+
+### bandit7 – Direct File Path
+
+**Password:**  
+```
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+```
+
+**Read the password:**
+```bash
 cat /var/lib/dpkg/info/bandit7.password
-</details> <details> <summary><strong>bandit8 – AWK Filtering</strong></summary>
-Password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
-Use AWK to extract the password:
+```
 
-bash
+---
+
+### bandit8 – AWK Filtering
+
+**Password:**  
+```
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+```
+
+**Use AWK to extract the password:**
+```bash
 awk '/^millionth/ {print $2;}' data.txt
-</details> <details> <summary><strong>bandit9 – Unique Line</strong></summary>
-Password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
-Find the unique password:
+```
 
-bash
+---
+
+### bandit9 – Unique Line
+
+**Password:**  
+```
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+```
+
+**Find the unique password:**
+```bash
 cat data.txt | sort | uniq -u
-</details> <details> <summary><strong>bandit10 – Strings and Grep</strong></summary>
-Password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
-Find the password with:
+```
 
-bash
+---
+
+### bandit10 – Strings and Grep
+
+**Password:**  
+```
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+```
+
+**Find the password with:**
+```bash
 strings data.txt | grep "="
-</details> <details> <summary><strong>bandit11 – Base64 decode</strong></summary>
-Password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
-Decode the file:
+```
 
-bash
+---
+
+### bandit11 – Base64 decode
+
+**Password:**  
+```
+dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+```
+
+**Decode the file:**
+```bash
 base64 --decode data.txt
-</details> <details> <summary><strong>bandit12 – ROT13 Cipher</strong></summary>
-Password: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
-Decode with tr:
+```
 
-bash
+---
+
+### bandit12 – ROT13 Cipher
+
+**Password:**  
+```
+7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+```
+
+**Decode with tr:**
+```bash
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
-</details> <details> <summary><strong>bandit13 – Multiple Archive Formats</strong></summary>
-Password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
-Script to extract recursively:
+```
 
-bash
+---
+
+### bandit13 – Multiple Archive Formats
+
+**Password:**  
+```
+FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+```
+
+**Script to extract recursively:**
+```bash
 tmpdir=$(mktemp -d) && cd "$tmpdir" && cp ~/data.txt . && xxd -r data.txt data && \
 while :; do
   ft=$(file data)
@@ -113,19 +215,37 @@ while :; do
   esac
   file data
 done
-</details> <details> <summary><strong>bandit14 – SSH Private Key</strong></summary>
-Password: MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
-SSH using a private key:
+```
 
-bash
+---
+
+### bandit14 – SSH Private Key
+
+**Password:**  
+```
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+```
+
+**SSH using a private key:**
+```bash
 ssh -i sshkey.private bandit14@localhost -p 2220
-</details> <details> <summary><strong>bandit15 – Netcat</strong></summary>
-Password: 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
-Send previous password via netcat:
+```
 
-bash
+---
+
+### bandit15 – Netcat
+
+**Password:**  
+```
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+```
+
+**Send previous password via netcat:**
+```bash
 cat /etc/bandit_pass/bandit14 | nc localhost 30000
-</details>
-Feel free to copy and expand this README as you progress through the levels!
-Happy hacking!
+```
 
+---
+
+Feel free to copy and expand this README as you progress through the levels!  
+Happy hacking!
